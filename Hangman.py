@@ -65,6 +65,7 @@ stages = ['''
 ''']
 stages.reverse()
 import random
+import os
 from hangman_words import word_list
 word= random.choice(word_list).lower()
 guessed=[]
@@ -84,6 +85,7 @@ while count<=6:
             string+=i
         else:
             string+=" _"
+    os.system('clear')
     print(string)
     if not "_" in string:
         print("You win!")   
