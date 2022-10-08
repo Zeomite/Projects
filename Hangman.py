@@ -1,9 +1,78 @@
-word= list("Beekeeper".lower())
+print(''' 
+ _                                             
+| |                                            
+| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
+| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
+| | | | (_| | | | | (_| | | | | | | (_| | | | |
+|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
+                    __/ |                      
+                   |___/    ''')
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+stages.reverse()
+import random
+from hangman_words import wordlist
+word= random.choice(wordlist).lower()
 guessed=[]
-string="_ _ _ _ _ _ _ _ _"
+string="_"*len(word)
 count=0
 print(string)
-while count<=7:
+while count<=6:
+    print(stages[count])
     inp= input("Enter letter: ").lower()
     if inp in word and inp not in guessed:
         guessed.append(inp)
@@ -19,6 +88,8 @@ while count<=7:
     if not "_" in string:
         print("You win!")   
         break 
-    if count==7:
+    if count==6:
+        print(stages[count])
         print("You Lose!")
         break
+print(f"The word was {word}.")
