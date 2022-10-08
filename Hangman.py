@@ -65,8 +65,8 @@ stages = ['''
 ''']
 stages.reverse()
 import random
-from hangman_words import wordlist
-word= random.choice(wordlist).lower()
+from hangman_words import word_list
+word= random.choice(word_list).lower()
 guessed=[]
 string="_"*len(word)
 count=0
