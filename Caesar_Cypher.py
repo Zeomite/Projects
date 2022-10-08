@@ -11,6 +11,8 @@ def ceaser_cipher(message,shift_number,choice):
                 output+=alpha[z]
             else:
                 z=alpha.index(i)-shift_number
+                while z<-25:
+                    z=z+26
                 output+=alpha[z]
         else:
             output+=i
